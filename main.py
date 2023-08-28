@@ -25,6 +25,17 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 
+COLORS = {
+  1: (0, 0, 255),
+  2: (0, 255, 0),
+  3: (255, 0, 0),
+  4: (0, 0, 128),
+  5: (128, 0, 0),
+  6: (0, 128, 128),
+  7: (128, 128, 0),
+  8: (128, 0, 128)
+}
+
 class Cell:
   def __init__(self, row, col) -> None:
     self.row = row
@@ -52,7 +63,7 @@ class Cell:
       else:
         pygame.draw.rect(surface, WHITE, rect)
         if self.value > 0:
-          textSurface = FONT.render(str(self.value), True, BLACK)
+          textSurface = FONT.render(str(self.value), True, COLORS[self.value])
           textRect = textSurface.get_rect(center=(x + rect.height / 2, y + rect.width /2))
           surface.blit(textSurface, textRect)
     else:
